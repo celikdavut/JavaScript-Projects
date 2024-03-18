@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copying Text</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        #text-container {
+            width: 14rem;
+            height: 2rem;
+            outline: none;
+            border: 2px solid orange;
+            border-radius: .3rem;
+        }
+
+        button {
+            width: 7rem;
+            height: 2.2rem;
+            background: blanchedalmond;
+            border: 2px solid black;
+            color: black;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: .3rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="text-container">
+    <button onclick="copy()">Copy</button>
+
+    <script>
+        function copy() {
+            var text = document.getElementById("text-container").value;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Text copied to clipboard:', text);
+            }).catch(err => {
+                alert('Error:', err);
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening the Webcam</title>
+    <style>
+        #videoContainer {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="startButton">open the camera</button>
+    <button id="stopButton" style="display: none;">turn off the camera</button>
+    <div id="videoContainer">
+        <video id="videoElement" autoplay></video>
+    </div>
+
+    <script>
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        const videoContainer = document.getElementById('videoContainer');
+        const videoElement = document.getElementById('videoElement');
+        let stream;
+
+        startButton.addEventListener('click', function () {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (str) {
+                    stream = str;
+                    videoElement.srcObject = stream;
+                    videoContainer.style.display = 'block';
+                    startButton.style.display = 'none';
+                    stopButton.style.display = 'inline-block';
+                    console.log('Webcam turned on');
+                })
+                .catch(function (err) {
+                    console.log('Could not open webcam: ' + err.message);
+                });
+        });
+
+        stopButton.addEventListener('click', function () {
+            if (stream) {
+                const tracks = stream.getTracks();
+                tracks.forEach(track => {
+                    track.stop();
+                });
+                videoElement.srcObject = null;
+                videoContainer.style.display = 'none';
+                startButton.style.display = 'inline-block';
+                stopButton.style.display = 'none';
+                console.log('Webcam turned off');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Prediction App</title>
+</head>
+
+<body>
+    <h1>Gender Prediction App</h1>
+    <label>Enter a name : </label>
+    <input type="text" id="name">
+    <button onclick="predictGender()">Predict Gender</button>
+    <div id="result"></div>
+
+
+    <script>
+        function predictGender() {
+            const name = document.getElementById("name").value.trim();
+            fetch(`https://api.genderize.io?name=${name}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("result").
+                        innerText = `The predicted gender for the name "${name}" is ${data.gender}`;
+                })
+        }
+    </script>
+</body>
+
+</html>

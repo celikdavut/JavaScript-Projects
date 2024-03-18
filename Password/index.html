@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password</title>
+    <style>
+        body {
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        label {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-right: .5rem;
+        }
+
+        #Input {
+            width: 14rem;
+            height: 2rem;
+        }
+
+        #toggle {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="">Password : </label>
+        <input type="text" id="Input">
+        <input type="checkbox" id="toggle">
+    </div>
+
+    <script>
+        document.getElementById("toggle")
+            .addEventListener("change", function () {
+                var passwordInput = document.getElementById("Input");
+                if (this.checked) {
+                    passwordInput.type = "text";
+                }
+                else {
+                    passwordInput.type = "password";
+                }
+            })
+    </script>
+</body>
+
+</html>

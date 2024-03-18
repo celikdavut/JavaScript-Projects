@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Change Animation</title>
+</head>
+
+<body>
+    <div class="container">
+        <img class="image" width="200" height="200" src="img1.jpg"></img>
+    </div>
+
+    <script>
+        let imgCount = 1;
+        let img = document.querySelector("img");
+
+        setInterval(() => {
+            if (imgCount > 5) {
+                imgCount = 1;
+            }
+            img.src = `img${imgCount}.jpg`
+            imgCount++;
+        }, 500);
+    </script>
+</body>
+
+</html>

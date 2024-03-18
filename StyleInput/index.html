@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Input</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            height: 100vh;
+            background: #000;
+            display: grid;
+            place-content: center;
+            gap: .7rem;
+        }
+
+        .first {
+            height: 12rem;
+            width: 12rem;
+            background-color: yellowgreen;
+            border: 2px solid yellowgreen;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .txt {
+            width: 12rem;
+            font-size: 1.1rem;
+            padding: .5rem;
+            text-align: center;
+            background-color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="first"></div>
+        <input type="text" class="txt">
+    </div>
+
+    <script>
+        let first = document.querySelector(".first");
+        let txt = document.querySelector(".txt");
+
+        txt.addEventListener("input", () => {
+            first.style.borderRadius = txt.value;
+            first.style.background = txt.value;
+            first.style.borderColor = txt.value;
+            if (txt.value === "imagen") {
+                first.style.setProperty("background-image", "url('img.jpg')")
+            }
+        });
+    </script>
+</body>
+
+</html>

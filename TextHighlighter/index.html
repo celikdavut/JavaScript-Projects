@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Highlighter</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100%;
+            background-color: #1e1c27;
+        }
+
+        .highlight-container {
+            width: 90vmin;
+            background-color: #ffffff;
+            padding: 50px 40px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 5px;
+            box-shadow: 0 20px 35px rgba(60, 60, 60, 0.2);
+        }
+
+        .search-wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .search-wrapper input {
+            width: 60%;
+            padding: 10px 5px;
+            border-radius: 3px;
+            border: 1px solid #201d2e;
+        }
+
+        .search-wrapper button {
+            width: 30%;
+            background-color: #201d2e;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: #ffffff;
+            border-radius: 3px;
+        }
+
+        .highlight-container .content {
+            line-height: 35px;
+            text-align: justify;
+            margin-top: 30px;
+        }
+
+        mark {
+            background-color: #bbffe8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="highlight-container">
+        <div class="search-wrapper">
+            <input type="text" id="text-to-search" placeholder="Enter text to search.." />
+            <button onclick="highlightText()">Search</button>
+        </div>
+        <p class="content" id="paragraph">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, eius cum illum omnis ipsa laudantium
+            repellat accusantium quo amet provident veritatis nesciunt adipisci mollitia molestias vitae doloremque ex
+            inventore enim expedita at doloribus animi a. Facere aspernatur quod quas aut sit fugiat a reiciendis qui
+            totam cum? Numquam porro illo ipsam molestiae et, voluptatum nostrum perferendis, debitis quos sint iste.
+        </p>
+    </div>
+
+    <script>
+        function highlightText() {
+            let textToSearch = document.getElementById("text-to-search").value;
+            let contentParagraph = document.getElementById("paragraph");
+            textToSearch = textToSearch.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+            let pattern = new RegExp(`${textToSearch}`, "gi");
+            contentParagraph.innerHTML = contentParagraph.textContent.replace(
+                pattern,
+                (match) => `<mark>${match}</mark>`
+            );
+        }
+    </script>
+</body>
+
+</html>

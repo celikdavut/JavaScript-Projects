@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Counter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            padding: 1rem;
+            border: 2px solid rgb(44, 193, 66);
+            border-radius: .5rem;
+            box-shadow:
+                0 0 5px rgb(44, 193, 66),
+                0 0 10px rgb(44, 193, 66),
+                0 0 15px rgb(44, 193, 66),
+                0 0 20px rgb(44, 193, 66);
+            background: #000;
+            color: azure;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            color: rgb(44, 193, 66);
+            padding: 1rem;
+        }
+
+        #output-value {
+            border: 1px solid rgb(44, 193, 66);
+            border-radius: .5rem;
+            padding: .5rem;
+            font-size: 1.1rem;
+            margin: .5rem;
+            color: rgb(44, 193, 66);
+        }
+
+        #input-value {
+            width: 100%;
+            padding: .5rem 1rem;
+            outline: none;
+            border: 3px solid rgb(105, 183, 117);
+            border-radius: .3rem;
+            background: #000;
+            color: rgb(44, 193, 66);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Character Counter</h2>
+        <h4 id="output-value">00</h4>
+        <input type="text" id="input-value">
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const inputValue = document.getElementById("input-value");
+                const outputValue = document.getElementById("output-value");
+
+                inputValue.addEventListener("input", function () {
+                    const inputText = inputValue.value;
+                    const characterCount = inputText.length;
+                    outputValue.innerText = characterCount < 10 ? "0" + characterCount : characterCount
+                });
+            });
+        </script>
+    </div>
+</body>
+
+</html>

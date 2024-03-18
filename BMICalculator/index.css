@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+}
+
+.maindiv {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    height: 70vh;
+    width: 33vw;
+    backdrop-filter: blur(10px);
+    background: rgb(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 2px solid #fff;
+}
+
+h1 {
+    border-radius: 12px;
+    font-size: 2.3rem;
+    color: rgb(5, 5, 6);
+    text-align: center;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+p {
+    padding: 1rem;
+    font-size: 1rem;
+    color: rgb(249, 249, 249);
+
+}
+
+label {
+    font-weight: 800;
+    color: black;
+    font-size: 18px;
+}
+
+input {
+    padding: 1px 7px;
+    border-radius: 4px;
+    font-weight: 700;
+    border: 1px solid black;
+}
+
+button {
+    border: none;
+    background: azure;
+    color: black;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    margin: 1rem;
+    font-size: 1.1rem;
+}
